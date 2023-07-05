@@ -13,17 +13,17 @@ To get started with this project, you'll need to install the required packages. 
 ```bash
 pip install -r requirements.txt
 
-# Database
+ Database
 
 The project uses the MVTec Screws dataset for training and testing the model. Here's a brief description of the dataset:
 
-## Overview
+Overview
 
 MVTec Screws contains 384 images of 13 different types of screws and nuts on a wooden background. The objects are labeled by oriented bounding boxes and their respective category. Overall, there are 4426 such annotations.
 
 The data has been split in a way that approximately 70% of the instances of each category are within the training split, and 15% each in the validation and test splits.
 
-## Structure
+ Structure
 
 - `images`: This folder contains all the screw images.
 - `mvtec_screws.json`: This file contains the annotations for all images in COCO format.
@@ -31,11 +31,11 @@ The data has been split in a way that approximately 70% of the instances of each
 - `mvtec_screws.hdict`: This file contains the DLDataset unsplitted.
 - `mvtec_screws_split.hdict`: This file contains the DLDataset with splits.
 
-## Usage
+Usage
 
 The .hdict files can be used within HALCON by reading them, and the image path has to be set to the location of the images folder. For usage within HALCON, no conversion is needed as the format is also used within the deep learning based object detection of HALCON.
 
-## Format
+Format
 
 MVTec screws is a dataset for oriented box detection, using a format that is very similar to that of the COCO dataset. However, it includes an additional parameter to store the orientation of each box. Each box contains 5 parameters (row, col, width, height, phi), where:
 - 'row' is the subpixel-precise center row (vertical axis of the coordinate system) of the box.
